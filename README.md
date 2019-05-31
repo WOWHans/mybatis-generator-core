@@ -1,4 +1,4 @@
-MyBatis Generator (MBG)
+MyBatis Generator (MBG) (version 1.3.7)
 =======================
 
 [![Build Status](https://travis-ci.org/mybatis/generator.svg?branch=master)](https://travis-ci.org/mybatis/generator)
