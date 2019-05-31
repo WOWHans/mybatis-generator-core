@@ -18,7 +18,7 @@ the sourcecode of the project from `https://github.com/mybatis/generator`
 
 ### new Feature
 
-#### batchInsertWithoutId
+####  1. batchInsertWithoutId
 
 > invoke this method to batch insert List<T>(will not insert T.id)
   
@@ -26,7 +26,7 @@ the sourcecode of the project from `https://github.com/mybatis/generator`
  2. generate related Mapper
  3. default generate the method
     
-#### batchInsertWithId    
+#### 2. batchInsertWithId    
 
 > invoke this method to batch insert List<T> (will insert T.id)
  
