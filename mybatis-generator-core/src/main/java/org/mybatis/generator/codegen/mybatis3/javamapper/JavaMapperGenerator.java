@@ -1,5 +1,5 @@
 /**
- *    Copyright ${license.git.copyrightYears} the original author or authors.
+ *    Copyright 2006-2019 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ import org.mybatis.generator.api.dom.java.JavaVisibility;
 import org.mybatis.generator.codegen.AbstractJavaClientGenerator;
 import org.mybatis.generator.codegen.AbstractXmlGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.elements.AbstractJavaMapperMethodGenerator;
+import org.mybatis.generator.codegen.mybatis3.javamapper.elements.BatchInsertWithIdMethodGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.elements.BatchInsertWithoutIdMethodGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.elements.CountByExampleMethodGenerator;
 import org.mybatis.generator.codegen.mybatis3.javamapper.elements.DeleteByExampleMethodGenerator;
@@ -93,6 +94,7 @@ public class JavaMapperGenerator extends AbstractJavaClientGenerator {
         addInsertMethod(interfaze);
         addInsertSelectiveMethod(interfaze);
         addBatchInsertWithoutIdMethod(interfaze);
+        addBatchInsertWithIdMethod(interfaze);
         addSelectByExampleWithBLOBsMethod(interfaze);
         addSelectByExampleWithoutBLOBsMethod(interfaze);
         addSelectByPrimaryKeyMethod(interfaze);
@@ -155,6 +157,13 @@ public class JavaMapperGenerator extends AbstractJavaClientGenerator {
     protected void addBatchInsertWithoutIdMethod(Interface interfaze) {
         if (introspectedTable.getRules().generateBatchInsert()) {
             AbstractJavaMapperMethodGenerator methodGenerator = new BatchInsertWithoutIdMethodGenerator();
+            initializeAndExecuteGenerator(methodGenerator, interfaze);
+        }
+    }
+
+    protected void addBatchInsertWithIdMethod(Interface interfaze) {
+        if (introspectedTable.getRules().generateBatchInsert()) {
+            AbstractJavaMapperMethodGenerator methodGenerator = new BatchInsertWithIdMethodGenerator();
             initializeAndExecuteGenerator(methodGenerator, interfaze);
         }
     }

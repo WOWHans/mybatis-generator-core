@@ -1,5 +1,5 @@
 /**
- *    Copyright ${license.git.copyrightYears} the original author or authors.
+ *    Copyright 2006-2019 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import org.mybatis.generator.codegen.AbstractXmlGenerator;
 import org.mybatis.generator.codegen.XmlConstants;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.AbstractXmlElementGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.BaseColumnListElementGenerator;
+import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.BatchInsertWithIdElementGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.BatchInsertWithoutIdElementGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.BlobColumnListElementGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.CountByExampleElementGenerator;
@@ -81,6 +82,7 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
         addInsertElement(answer);
         addInsertSelectiveElement(answer);
         addBatchInsertWithoutIdElement(answer);
+        addBatchInsertWithIdElement(answer);
         addCountByExampleElement(answer);
         addUpdateByExampleSelectiveElement(answer);
         addUpdateByExampleWithBLOBsElement(answer);
@@ -191,6 +193,13 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
     protected void addBatchInsertWithoutIdElement(XmlElement parentElement) {
         if (introspectedTable.getRules().generateBatchInsert()) {
             AbstractXmlElementGenerator elementGenerator = new BatchInsertWithoutIdElementGenerator();
+            initializeAndExecuteGenerator(elementGenerator, parentElement);
+        }
+    }
+
+    protected void addBatchInsertWithIdElement(XmlElement parentElement) {
+        if (introspectedTable.getRules().generateBatchInsert()) {
+            AbstractXmlElementGenerator elementGenerator = new BatchInsertWithIdElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }

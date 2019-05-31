@@ -1,5 +1,5 @@
 /**
- *    Copyright ${license.git.copyrightYears} the original author or authors.
+ *    Copyright 2006-2019 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -79,6 +79,7 @@ public abstract class IntrospectedTable {
         ATTR_INSERT_STATEMENT_ID,
         ATTR_INSERT_SELECTIVE_STATEMENT_ID,
         ATTR_BATCH_INSERT_WITHOUT_ID_STATEMENT_ID,
+        ATTR_BATCH_INSERT_WITH_ID_STATEMENT_ID,
         ATTR_SELECT_ALL_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_WITH_BLOBS_STATEMENT_ID,
@@ -535,6 +536,7 @@ public abstract class IntrospectedTable {
         setInsertStatementId("insert"); //$NON-NLS-1$
         setInsertSelectiveStatementId("insertSelective"); //$NON-NLS-1$
         setBatchInsertWithoutIdStatementId("batchInsertWithoutId");
+        setBatchInsertWithIdStatementId("batchInsertWithId");
         setSelectAllStatementId("selectAll"); //$NON-NLS-1$
         setSelectByExampleStatementId("selectByExample"); //$NON-NLS-1$
         setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs"); //$NON-NLS-1$
@@ -649,6 +651,11 @@ public abstract class IntrospectedTable {
             InternalAttribute.ATTR_BATCH_INSERT_WITHOUT_ID_STATEMENT_ID, s);
     }
 
+    public void setBatchInsertWithIdStatementId(String s) {
+        internalAttributes.put(
+            InternalAttribute.ATTR_BATCH_INSERT_WITH_ID_STATEMENT_ID, s);
+    }
+
     public void setInsertStatementId(String s) {
         internalAttributes.put(InternalAttribute.ATTR_INSERT_STATEMENT_ID, s);
     }
@@ -756,6 +763,11 @@ public abstract class IntrospectedTable {
     public String getBatchInsertWithoutIdStatementId() {
         return internalAttributes
             .get(InternalAttribute.ATTR_BATCH_INSERT_WITHOUT_ID_STATEMENT_ID);
+    }
+
+    public String getBatchInsertWithIdStatementId() {
+        return internalAttributes
+            .get(InternalAttribute.ATTR_BATCH_INSERT_WITH_ID_STATEMENT_ID);
     }
 
     public String getInsertStatementId() {
