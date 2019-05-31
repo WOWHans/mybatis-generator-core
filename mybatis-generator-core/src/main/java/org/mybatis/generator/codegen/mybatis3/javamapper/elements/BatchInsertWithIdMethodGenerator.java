@@ -33,10 +33,9 @@ public class BatchInsertWithIdMethodGenerator extends AbstractJavaMapperMethodGe
     public void addInterfaceElements(Interface interfaze) {
         Method method = new Method();
 
-        method.setReturnType(FullyQualifiedJavaType.getBooleanPrimitiveInstance());
+        method.setReturnType(FullyQualifiedJavaType.getVoidReturnType());
         method.setVisibility(JavaVisibility.PUBLIC);
         method.setName(introspectedTable.getBatchInsertWithIdStatementId());
-
         FullyQualifiedJavaType parameterType  = introspectedTable.getRules().calculateAllFieldsClass();
 
         Set<FullyQualifiedJavaType> importedTypes = new TreeSet<FullyQualifiedJavaType>();

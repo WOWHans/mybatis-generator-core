@@ -33,7 +33,7 @@ public class BatchInsertWithoutIdMethodGenerator extends AbstractJavaMapperMetho
     public void addInterfaceElements(Interface interfaze) {
         Method method = new Method();
 
-        method.setReturnType(FullyQualifiedJavaType.getBooleanPrimitiveInstance());
+        method.setReturnType(FullyQualifiedJavaType.getVoidReturnType());
         method.setVisibility(JavaVisibility.PUBLIC);
         method.setName(introspectedTable.getBatchInsertWithoutIdStatementId());
 

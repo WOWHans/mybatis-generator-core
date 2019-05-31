@@ -46,6 +46,9 @@ public class FullyQualifiedJavaType implements
 
     private static FullyQualifiedJavaType generatedCriteriaInstance = null;
 
+    private static FullyQualifiedJavaType voidReturnType = null;
+
+
     /** The short name without any generic arguments. */
     private String baseShortName;
 
@@ -305,6 +308,13 @@ public class FullyQualifiedJavaType implements
         }
 
         return booleanPrimitiveInstance;
+    }
+
+    public static final FullyQualifiedJavaType getVoidReturnType() {
+        if (voidReturnType == null) {
+            voidReturnType = new FullyQualifiedJavaType("void");
+        }
+        return voidReturnType;
     }
 
     public static final FullyQualifiedJavaType getObjectInstance() {
