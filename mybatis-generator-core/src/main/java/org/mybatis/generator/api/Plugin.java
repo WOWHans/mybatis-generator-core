@@ -572,6 +572,9 @@ public interface Plugin {
     boolean clientSelectByExampleWithoutBLOBsMethodGenerated(Method method,
             Interface interfaze, IntrospectedTable introspectedTable);
 
+
+    boolean clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(Method method,
+        Interface interfaze, IntrospectedTable introspectedTable);
     /**
      * This method is called when the selectByExampleWithoutBLOBs method has
      * been generated in the client implementation class.
@@ -1343,6 +1346,9 @@ public interface Plugin {
      */
     boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable);
+
+    boolean sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(
+        XmlElement element, IntrospectedTable introspectedTable);
 
     /**
      * This method is called when the selectByExampleWithBLOBs element is

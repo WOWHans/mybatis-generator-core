@@ -33,4 +33,12 @@ the sourcecode of the project from `https://github.com/mybatis/generator`
   1. generate related xml
   2. generate related Mapper
   3. default generate the method
+  
+ 
+#### 3. selectPagingAndSortingByExample
 
+> invoke this method to select data by pageable way
+
+  1. generate related xml
+  2. generate related Mapper
+  3. default generate the method

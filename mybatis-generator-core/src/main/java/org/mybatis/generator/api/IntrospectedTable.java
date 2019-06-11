@@ -82,6 +82,7 @@ public abstract class IntrospectedTable {
         ATTR_BATCH_INSERT_WITH_ID_STATEMENT_ID,
         ATTR_SELECT_ALL_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_STATEMENT_ID,
+        ATTR_SELECT_PAGING_SORTING_BY_EXAMPLE_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_WITH_BLOBS_STATEMENT_ID,
         ATTR_SELECT_BY_PRIMARY_KEY_STATEMENT_ID,
         ATTR_UPDATE_BY_EXAMPLE_STATEMENT_ID,
@@ -539,6 +540,7 @@ public abstract class IntrospectedTable {
         setBatchInsertWithIdStatementId("batchInsertWithId");
         setSelectAllStatementId("selectAll"); //$NON-NLS-1$
         setSelectByExampleStatementId("selectByExample"); //$NON-NLS-1$
+        setSelectPagingAndSortingByExampleStatementId("selectPagingAndSortingByExample");
         setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs"); //$NON-NLS-1$
         setSelectByPrimaryKeyStatementId("selectByPrimaryKey"); //$NON-NLS-1$
         setUpdateByExampleStatementId("updateByExample"); //$NON-NLS-1$
@@ -639,6 +641,11 @@ public abstract class IntrospectedTable {
     public void setSelectByExampleStatementId(String s) {
         internalAttributes.put(
                 InternalAttribute.ATTR_SELECT_BY_EXAMPLE_STATEMENT_ID, s);
+    }
+
+    public void setSelectPagingAndSortingByExampleStatementId(String s) {
+        internalAttributes.put(
+            InternalAttribute.ATTR_SELECT_PAGING_SORTING_BY_EXAMPLE_STATEMENT_ID, s);
     }
 
     public void setInsertSelectiveStatementId(String s) {
@@ -753,6 +760,11 @@ public abstract class IntrospectedTable {
     public String getSelectByExampleStatementId() {
         return internalAttributes
                 .get(InternalAttribute.ATTR_SELECT_BY_EXAMPLE_STATEMENT_ID);
+    }
+
+    public String getSelectPagingAndSortingByExampleStatementId() {
+        return internalAttributes
+            .get(InternalAttribute.ATTR_SELECT_PAGING_SORTING_BY_EXAMPLE_STATEMENT_ID);
     }
 
     public String getInsertSelectiveStatementId() {

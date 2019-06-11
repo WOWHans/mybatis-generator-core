@@ -312,6 +312,22 @@ public final class PluginAggregator implements Plugin {
     }
 
     @Override
+    public boolean sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(
+        XmlElement element, IntrospectedTable introspectedTable) {
+        boolean rc = true;
+
+        for (Plugin plugin : plugins) {
+            if (!plugin.sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(
+                element, introspectedTable)) {
+                rc = false;
+                break;
+            }
+        }
+
+        return rc;
+    }
+
+    @Override
     public boolean sqlMapSelectByExampleWithBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         boolean rc = true;
@@ -760,6 +776,22 @@ public final class PluginAggregator implements Plugin {
         for (Plugin plugin : plugins) {
             if (!plugin.clientSelectByExampleWithoutBLOBsMethodGenerated(method,
                     interfaze, introspectedTable)) {
+                rc = false;
+                break;
+            }
+        }
+
+        return rc;
+    }
+
+    @Override
+    public boolean clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(Method method,
+        Interface interfaze, IntrospectedTable introspectedTable) {
+        boolean rc = true;
+
+        for (Plugin plugin : plugins) {
+            if (!plugin.clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(method,
+                interfaze, introspectedTable)) {
                 rc = false;
                 break;
             }
