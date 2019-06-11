@@ -195,6 +195,12 @@ public abstract class PluginAdapter implements Plugin {
     }
 
     @Override
+    public boolean clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(Method method,
+        Interface interfaze, IntrospectedTable introspectedTable) {
+        return true;
+    }
+
+    @Override
     public boolean clientSelectByExampleWithoutBLOBsMethodGenerated(Method method,
             TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
         return true;
@@ -391,6 +397,12 @@ public abstract class PluginAdapter implements Plugin {
     @Override
     public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
+        return true;
+    }
+
+    @Override
+    public boolean sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(
+        XmlElement element, IntrospectedTable introspectedTable) {
         return true;
     }
 

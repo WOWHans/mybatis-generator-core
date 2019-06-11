@@ -123,6 +123,54 @@ public class ExampleGenerator extends AbstractJavaGenerator {
         commentGenerator.addGeneralMethodComment(method, introspectedTable);
         topLevelClass.addMethod(method);
 
+        field = new Field();
+        field.setVisibility(JavaVisibility.PROTECTED);
+        field.setType(FullyQualifiedJavaType.getIntInstance());
+        field.setName("limit");
+        commentGenerator.addFieldComment(field, introspectedTable);
+        topLevelClass.addField(field);
+
+        method = new Method();
+        method.setVisibility(JavaVisibility.PUBLIC);
+        method.setName("setLimit");
+        method.addParameter(new Parameter(FullyQualifiedJavaType.getIntInstance(), "limit"));
+        method.addBodyLine("this.limit = limit;");
+        commentGenerator.addGeneralMethodComment(method, introspectedTable);
+        topLevelClass.addMethod(method);
+
+        method = new Method();
+        method.setVisibility(JavaVisibility.PUBLIC);
+        method.setReturnType(FullyQualifiedJavaType.getIntInstance());
+        method.setName("getLimit");
+        method.addBodyLine("return limit;");
+        commentGenerator.addGeneralMethodComment(method, introspectedTable);
+        topLevelClass.addMethod(method);
+
+
+        field = new Field();
+        field.setVisibility(JavaVisibility.PROTECTED);
+        field.setType(FullyQualifiedJavaType.getIntInstance());
+        field.setName("offset");
+        commentGenerator.addFieldComment(field, introspectedTable);
+        topLevelClass.addField(field);
+
+        method = new Method();
+        method.setVisibility(JavaVisibility.PUBLIC);
+        method.setName("setOffset");
+        method.addParameter(new Parameter(FullyQualifiedJavaType.getIntInstance(), "offset"));
+        method.addBodyLine("this.offset = offset;");
+        commentGenerator.addGeneralMethodComment(method, introspectedTable);
+        topLevelClass.addMethod(method);
+
+        method = new Method();
+        method.setVisibility(JavaVisibility.PUBLIC);
+        method.setReturnType(FullyQualifiedJavaType.getIntInstance());
+        method.setName("getOffset");
+        method.addBodyLine("return offset;");
+        commentGenerator.addGeneralMethodComment(method, introspectedTable);
+        topLevelClass.addMethod(method);
+
+
         // add field and methods for the list of ored criteria
         field = new Field();
         field.setVisibility(JavaVisibility.PROTECTED);

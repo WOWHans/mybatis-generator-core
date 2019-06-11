@@ -74,12 +74,27 @@ public class RowBoundsPlugin extends PluginAdapter {
     }
 
     @Override
+    public boolean clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(Method method,
+        Interface interfaze, IntrospectedTable introspectedTable) {
+        return super
+            .clientSelectPagingAndSortingByExampleWithoutBLOBsMethodGenerated(method, interfaze,
+                introspectedTable);
+    }
+
+    @Override
     public boolean sqlMapSelectByExampleWithoutBLOBsElementGenerated(
             XmlElement element, IntrospectedTable introspectedTable) {
         if (introspectedTable.getTargetRuntime() == TargetRuntime.MYBATIS3) {
             copyAndSaveElement(element, introspectedTable.getFullyQualifiedTable());
         }
         return true;
+    }
+
+    @Override
+    public boolean sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(
+        XmlElement element, IntrospectedTable introspectedTable) {
+        return super.sqlMapSelectPagingAndSortingByExampleWithoutBLOBsElementGenerated(element,
+            introspectedTable);
     }
 
     @Override
